@@ -4,7 +4,7 @@
 
 :star: Star us on GitHub — it helps!
 
-## [Live Demo](https://alikinvv.github.io/https://dribbble.s3.amazonaws.com/users/1773016/screenshots/6100737/5.gif?1551359995655/build)
+## [Live Demo](https://alikinvv.github.io/search-interaction/build)
 
 ![search interaction](https://dribbble.s3.amazonaws.com/users/1773016/screenshots/6100737/5.gif?1551359995655)
 
