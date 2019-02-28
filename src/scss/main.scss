@@ -1,0 +1,184 @@
+@charset 'UTF-8';
+@import 'mixins';
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	background: #fcce4f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+.search {
+	position: relative;
+	overflow: hidden;
+	height: 88px;
+
+	&.active {
+		&::before {
+			top: 12px;
+			bottom: 14px;
+			opacity: 0;
+		}
+
+		path {
+			stroke-dashoffset: -400;
+		}
+
+		p {
+			&::before,
+			&::after {
+				opacity: 1;
+			}
+		}
+
+		span {
+			transform: scale(0);
+			opacity: 0;
+		}
+
+		&.remove {
+			&::before {
+				transition: all 200ms linear 200ms, opacity 0ms linear 0ms;
+				top: 88px;
+				bottom: 2px;
+				opacity: 1;
+			}
+
+			p {
+				&::before,
+				&::after {
+					transition: all 0ms;
+					opacity: 0;
+				}
+			}
+
+			path {
+				stroke-dashoffset: -800;
+				transition-delay: 400ms;
+			}
+
+			span {
+				transform: scale(1);
+				opacity: 1;
+				transition-delay: 400ms;
+			}
+
+			&.done {
+				&::before {
+					top: 0;
+					bottom: 88px;
+					opacity: 1;
+					transition: none;
+				}
+
+				path {
+					stroke-dashoffset: 0;
+					stroke-dasharray: 400;
+					transition: none;
+				}
+			}
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 0;
+		transform: translateX(-1px);
+		width: 4px;
+		background: #f51f42;
+		bottom: 88px;
+		border-radius: 50px;
+		opacity: 1;
+		transition: all 400ms ease-in-out 500ms, opacity 200ms linear 1000ms;
+	}
+
+	path {
+		stroke-dashoffset: 0;
+		stroke-dasharray: 400;
+		transition: all 500ms ease-in-out;
+	}
+
+	span {
+		position: absolute;
+		top: 50%;
+		left: -9px;
+		height: 80px;
+		line-height: 80px;
+		width: 100%;
+		margin-top: -40px;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 40px;
+		color: #f51f42;
+		pointer-events: none;
+		user-select: none;
+		transition: all 400ms ease-in-out;
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	input,
+	p {
+	  position: absolute;
+	  top: 50%;
+	  left: -9px;
+	  height: 80px;
+	  line-height: 80px;
+	  width: 100%;
+	  margin-top: -40px;
+	  vertical-align: middle;
+	  text-align: center;
+	  font-size: 40px;
+	}
+
+	input {
+		color: transparent;
+		background-color: transparent;
+		border: 0;
+		outline: none;
+	}
+
+	p {
+		color: #f51f42;
+		
+		&:after, 
+		&:before {
+			content: '';
+			opacity: 0;
+			width: 4px;
+			height: 60px;
+			vertical-align: middle;
+			border-radius: 20px;
+			margin-top: 8px;
+			transition: all .2s ease-in-out;
+			transition-delay: 1000ms;
+			display: inline-block;
+		}
+
+		&:after {
+			position: relative;
+			bottom: 8px;
+			left: 8px;
+			background: #f51f42;
+			animation: blinky 450ms linear infinite alternate;
+		}
+	}
+}
+
+@keyframes blinky {
+	0% {
+		background: transparent;
+	}
+	100% {
+		background: #f51f42;
+	}
+}
