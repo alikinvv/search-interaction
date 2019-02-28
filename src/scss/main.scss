@@ -8,11 +8,11 @@ body {
 }
 
 body {
-	background: #fcce4f;
+	background: #530491;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .search {
@@ -22,7 +22,7 @@ body {
 
 	&.active {
 		&::before {
-			top: 12px;
+			top: 14px;
 			bottom: 14px;
 			opacity: 0;
 		}
@@ -94,7 +94,7 @@ body {
 		top: 0;
 		transform: translateX(-1px);
 		width: 4px;
-		background: #f51f42;
+		background: #ff4365;
 		bottom: 88px;
 		border-radius: 50px;
 		opacity: 1;
@@ -110,20 +110,22 @@ body {
 	span {
 		position: absolute;
 		top: 50%;
-		left: -9px;
+		left: 0;
 		height: 80px;
 		line-height: 80px;
 		width: 100%;
 		margin-top: -40px;
 		vertical-align: middle;
 		text-align: center;
-		font-size: 40px;
-		color: #f51f42;
+		font-size: 34px;
+		letter-spacing: 4px;
+		color: #ff4365;
 		pointer-events: none;
 		user-select: none;
 		transition: all 400ms ease-in-out;
 		opacity: 1;
 		transform: scale(1);
+		text-transform: uppercase;
 	}
 
 	input,
@@ -148,7 +150,7 @@ body {
 	}
 
 	p {
-		color: #f51f42;
+		color: #ff4365;
 		
 		&:after, 
 		&:before {
@@ -168,7 +170,7 @@ body {
 			position: relative;
 			bottom: 8px;
 			left: 8px;
-			background: #f51f42;
+			background: #ff4365;
 			animation: blinky 450ms linear infinite alternate;
 		}
 	}
@@ -179,6 +181,6 @@ body {
 		background: transparent;
 	}
 	100% {
-		background: #f51f42;
+		background: #ff4365;
 	}
 }
