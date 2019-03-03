@@ -23,6 +23,7 @@
 
     $input.blur(function () {
       trigger = false;
+      $input.css('pointer-events', 'none');
 
       $input.val('');
       $text.text('');
@@ -36,6 +37,7 @@
           setTimeout(function () {
             $('.search').removeClass('done');
             trigger = true;
+            $input.css('pointer-events', 'all');
           }, 100);
         }, 100);
       }, 800);

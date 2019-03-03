@@ -32,6 +32,8 @@ body {
 		}
 
 		p {
+			pointer-events: all;
+
 			&::before,
 			&::after {
 				opacity: 1;
@@ -151,6 +153,8 @@ body {
 
 	p {
 		color: #ff4365;
+		pointer-events: none;
+		white-space: nowrap;
 		
 		&:after, 
 		&:before {
