@@ -1,46 +1,47 @@
-(function () {
-    var check;  
-    var $input = $('.search input');  
-    var $text = $('.search p');
-    var trigger = true;
+let check;  
+let input = document.querySelector('.search input');  
+let text = document.querySelector('.search p');
+let search = document.querySelector('.search');
+let trigger = true;
+
+input.addEventListener('click', () => {
+  if (trigger) {
+    search.classList.add('active');
   
-    $input.click(function () {
-      if (trigger) {
-        $('.search').addClass('active');
+    check = () => {
+      let cur, oldVal;
+      cur = input.value;
       
-        check = function() {
-          var cur, oldVal;
-          cur = $input.val();
-          if (cur !== oldVal) {
-            $text.text($input.val());
-          }
-          return oldVal = cur;
-        };
-      
-        sentinel = setInterval(check, .1);
+      if (cur !== oldVal) {
+        text.innerHTML = input.value;
       }
-    });
 
-    $input.blur(function () {
-      trigger = false;
-      $input.css('pointer-events', 'none');
-
-      $input.val('');
-      $text.text('');
-      $('.search').addClass('remove');
-
-      setTimeout(function () {
-        $('.search').addClass('done');
-        setTimeout(function () {
-          $('.search').removeClass('active remove');
-
-          setTimeout(function () {
-            $('.search').removeClass('done');
-            trigger = true;
-            $input.css('pointer-events', 'all');
-          }, 100);
-        }, 100);
-      }, 800);
-    });
+      return oldVal = cur;
+    };
   
-  }).call(this);
+    sentinel = setInterval(check, .1);
+  }
+});
+
+input.addEventListener('blur', () => {
+  trigger = false;
+  input.style.pointerEvents = 'none';
+
+  input.value = '';
+  text.innerHTML = '';
+  search.classList.add('remove');
+
+  setTimeout(() => {
+    search.classList.add('done');
+
+    setTimeout(() => {
+      search.classList.remove('active', 'remove');
+
+      setTimeout(() => {
+        search.classList.remove('done');
+        trigger = true;
+        input.style.pointerEvents = 'all';
+      }, 100);
+    }, 100);
+  }, 800);
+});
